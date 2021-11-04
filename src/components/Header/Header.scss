@@ -1,0 +1,80 @@
+@import "../../fonts/variables";
+
+.header {
+   padding: 4.5rem 3.5rem 3.5rem 5rem;
+   position: relative;
+}
+
+.header::after {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 1px;
+   background-color: #f6f6f6;
+}
+
+.header__row {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.logo-group {
+   display: flex;
+   align-items: center;
+}
+.logo-group__img {
+}
+.logo-group__body {
+   padding-left: 1.5rem;
+}
+.logo-group__title {
+   font-weight: bold;
+   font-size: 2.4rem;
+   letter-spacing: 0.01em;
+   color: #181818;
+}
+.logo-group__subtitle {
+   font-weight: 400;
+   font-size: 1.6rem;
+   color: #7b7b7b;
+}
+
+//
+
+.nav {
+}
+.nav-cart {
+   padding: 1.2rem 2.5rem;
+   border-radius: 30px;
+   background-color: $orange1;
+   font-size: 1.6rem;
+   font-weight: bold;
+   line-height: 1.9rem;
+   color: #fff;
+   display: flex;
+   align-items: center;
+}
+.nav-cart__money {
+   display: flex;
+   position: relative;
+   padding-right: 2.4rem;
+}
+
+.nav-cart__money::after {
+   content: "";
+   background-color: #fff;
+   position: absolute;
+   height: 100%;
+   width: 1px;
+   right: 1.3rem;
+   top: 0;
+}
+
+.nav-money-icon {
+}
+.nav-cart__icon {
+   display: flex;
+   align-items: center;
+}

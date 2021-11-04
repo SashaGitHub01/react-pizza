@@ -1,0 +1,17 @@
+.main-content {
+   padding: 2.9rem 0px 0px 0px;
+   &__title {
+      font-size: 3.2rem;
+      line-height: 3.8rem;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+   }
+}
+
+.pizzas {
+   padding: 3rem 0px 3rem 0px;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(28rem, auto));
+   gap: 65px 35px;
+   justify-content: space-between;
+}
