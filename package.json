@@ -28,11 +28,11 @@
       "web-vitals": "^1.0.1"
    },
    "scripts": {
-      "start": "set PORT=3001 && react-scripts start",
+      "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
       "eject": "react-scripts eject",
-      "server": "npx json-server --watch public/database.json"
+      "server": "npx json-server --watch public/database.json --port=3001"
    },
    "eslintConfig": {
       "extends": [

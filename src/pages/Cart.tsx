@@ -23,7 +23,7 @@ const Cart = () => {
       dispatch(clearCart());
    }
 
-   if (true) return <CartEmpty />
+   if (!Object.keys(items).length) return <CartEmpty />
 
    return (
       <div className="cart">
