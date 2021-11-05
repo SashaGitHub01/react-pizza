@@ -1,22 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { useDispatch } from "react-redux";
+import { setSortBy } from "../../../redux/actions/home";
 import './SortPopup.scss';
 import pop from '../../../assets/pop.svg';
 
-interface ISortPopupProps {
-   setSortBy: React.Dispatch<React.SetStateAction<string>>
-   sortBy: string,
-}
+// interface ISortPopupProps {
+//    setSortBy: React.Dispatch<React.SetStateAction<string>>
+//    sortBy: string,
+// }
 
-const SortPopup: React.FC<ISortPopupProps> = ({ sortBy, setSortBy }) => {
+const sort = [
+   { title: 'популярности', id: 0, name: 'rating' },
+   { title: 'по цене', id: 1, name: 'price' },
+   { title: 'по алфавиту', id: 2, name: 'name' },
+]
+
+const SortPopup: React.FC = () => {
    const [popup, setPopup] = useState<boolean>(false);
-
    const ref = useRef<HTMLDivElement>(null);
 
-   const sort = [
-      { name: 'популярности' },
-      { name: 'по цене' },
-      { name: 'по алфавиту' },
-   ]
+   const dispatch = useDispatch();
+   const sortBy = useTypedSelector(state => state.homePage.sortBy);
 
    useEffect(() => {
       const checkClick = (e: Event) => {
@@ -40,8 +45,14 @@ const SortPopup: React.FC<ISortPopupProps> = ({ sortBy, setSortBy }) => {
       setPopup(!popup);
    }
 
-   const handleSort = (name: string) => {
-      setSortBy(name);
+   const handleSort = (name: string, id: number, title: string) => {
+      setPopup(false);
+
+      if (id === sortBy.id) {
+         return;
+      }
+
+      dispatch(setSortBy({ name, id, title }));
    }
 
    return (
@@ -59,21 +70,21 @@ const SortPopup: React.FC<ISortPopupProps> = ({ sortBy, setSortBy }) => {
             <span
                onClick={handlePop}
                className="sort-by__selected">
-               {sortBy}
+               {sortBy.title}
             </span>
          </div>
          {popup &&
             <div className="sort-by__popup sort-popup" ref={ref}>
                <ul className="sort-popup__list">
-                  {sort.map(({ name }) => (
+                  {sort.map(({ name, title, id }) => (
                      <div
-                        className={sortBy === name
+                        className={sortBy.id === id
                            ? "sort-popup__item active"
                            : "sort-popup__item"}
                         key={name}
-                        onClick={() => handleSort(name)}
+                        onClick={() => handleSort(name, id, title)}
                      >
-                        {name}
+                        {title}
                      </div>
                   ))}
                </ul>

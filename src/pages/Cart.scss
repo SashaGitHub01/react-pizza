@@ -1,0 +1,117 @@
+@import "../fonts/variables";
+
+.cart {
+   padding: 9rem 0px 9rem 0px;
+   &__content {
+      max-width: 85rem;
+      padding: 0 1.5rem;
+      margin: 0 auto;
+   }
+   &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__title {
+      font-size: 3.2rem;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+      font-weight: bold;
+      span,
+      img {
+         vertical-align: middle;
+      }
+
+      img {
+         cursor: pointer;
+      }
+
+      span {
+         padding-left: 1.5rem;
+      }
+   }
+   &__trash {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: rgba(182, 182, 182, 1);
+      cursor: pointer;
+      span,
+      img {
+         vertical-align: middle;
+      }
+
+      span {
+         padding-left: 1.3rem;
+      }
+      &:hover {
+         color: rgb(97, 97, 97);
+      }
+   }
+   &__body {
+      padding: 3rem 0px 4rem 0rem;
+   }
+   &__column {
+   }
+
+   &__outcome {
+      display: flex;
+      font-size: 2.2rem;
+      justify-content: space-between;
+      align-items: center;
+   }
+   &__count {
+   }
+   &__money {
+      span > b {
+         color: $orange1;
+      }
+   }
+
+   &__buttons {
+      padding: 4rem 0px 0px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   button,
+   a {
+      height: 55px;
+      width: 211px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   &__back-btn {
+      border: 0.1rem solid rgba(202, 202, 202, 1);
+      border-radius: 3rem;
+      background-color: #fff;
+      color: rgba(202, 202, 202, 1);
+
+      &:hover {
+         background-color: rgb(240, 240, 240);
+      }
+
+      span {
+         padding-left: 0.65rem;
+         vertical-align: middle;
+         font-size: 1.6rem;
+         font-weight: 400;
+      }
+
+      img {
+         vertical-align: middle;
+      }
+   }
+   &__pay-btn {
+      border: 0.1rem solid $orange1;
+      border-radius: 3rem;
+      background-color: $orange1;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+   }
+}

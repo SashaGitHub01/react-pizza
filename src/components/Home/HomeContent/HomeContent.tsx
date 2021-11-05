@@ -4,29 +4,34 @@ import { useDispatch } from "react-redux";
 import './HomeContent.scss';
 
 import PizzaItem from "../PizzaItem/PizzaItem";
-import { getUsers } from "../../../redux/actions/home";
+import { getPizzas } from "../../../redux/actions/home";
+import PizzaPlaceholder from "../../PizzaPlaceholder/PizzaPlaceholder";
 
-interface IHomeContentProps {
-   currentNav: string
-}
+// interface IHomeContentProps {
+//    currentNav: string
+// }
 
-const HomeContent: React.FC<IHomeContentProps> = ({ currentNav }) => {
+const HomeContent: React.FC = () => {
    const dispatch = useDispatch();
-   const { error, isFetching, items } = useTypedSelector(state => state.homePage)
+   const { filter, error, isFetching, items, sortBy } = useTypedSelector(state => state.homePage)
 
    useEffect(() => {
-      dispatch(getUsers());
-   }, []);
-   console.log(items);
+      dispatch(getPizzas(filter.id, sortBy.name));
+   }, [filter, sortBy]);
+
    return (
       <div className="main-col__content main-content">
          <div className="main-content__title">
-            {currentNav}<span> пиццы</span>
+            <span>{filter.name} пиццы</span>
          </div>
          <div className="main-content__pizzas pizzas">
-            {items.length && items.map((item) => (
-               <PizzaItem {...item} key={item.id} />
-            ))}
+            {isFetching
+               ? Array(9)
+                  .fill(1)
+                  .map((item, i) => <PizzaPlaceholder key={i} />)
+               : items.map((item) => (
+                  <PizzaItem {...item} key={item.id} />
+               ))}
          </div>
       </div>
    )

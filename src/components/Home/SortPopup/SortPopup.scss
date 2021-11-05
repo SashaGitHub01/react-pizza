@@ -2,6 +2,7 @@
 
 .sort-by {
    position: relative;
+   z-index: 1111;
    &__body {
       color: $black1;
       letter-spacing: 0.015em;
@@ -36,15 +37,16 @@
 
 .sort-popup {
    border-radius: 10px;
+   z-index: 77;
    padding: 13px 0;
    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.09);
    position: absolute;
    right: 0;
    top: 25px;
-
+   background-color: #fff;
    &__list {
       border-radius: 10px;
-      border-collapse: separate;
+      position: relative;
    }
    &__item {
       font-size: 1.4rem;

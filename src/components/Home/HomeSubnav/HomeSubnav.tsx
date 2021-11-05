@@ -1,35 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../../redux/actions/home";
 import './HomeSubnav.scss';
 
-interface IHomeSubnavProps {
-   currentNav: string,
-   setCurrentNav: React.Dispatch<React.SetStateAction<string>>
-}
+// interface IHomeSubnavProps {
+//    currentNav: string,
+//    setCurrentNav: React.Dispatch<React.SetStateAction<string>>
+// }
 
-const HomeSubnav: React.FC<IHomeSubnavProps> = ({ setCurrentNav, currentNav }) => {
+const nav = [
+   { name: 'Все' },
+   { name: 'Мясные' },
+   { name: 'Вегетарианские' },
+   { name: 'Гриль' },
+   { name: 'Острые' },
+   { name: 'Закрытые' },
+]
 
-   const nav = [
-      { name: 'Все' },
-      { name: 'Мясные' },
-      { name: 'Вегетарианские' },
-      { name: 'Гриль' },
-      { name: 'Острые' },
-      { name: 'Закрытые' },
-   ]
+const HomeSubnav: React.FC = () => {
+   const dispatch = useDispatch();
 
-   const handleNav = (name: string) => {
-      setCurrentNav(name);
-   }
+   const filter = useTypedSelector(state => state.homePage.filter);
+
+   const handleNav = (i: number, name: string) => {
+      if (i === filter.id) return;
+
+      dispatch(setFilter({ id: i, name: name }));
+   };
 
    return (
       <div className="main-subnav__list">
-         {nav.map(({ name }) => (
+         {nav.map(({ name }, index) => (
             <div
-               className={currentNav === name
+               className={filter.id === index
                   ? "main-subnav__item active"
                   : "main-subnav__item"}
                key={name}
-               onClick={() => handleNav(name)}
+               onClick={() => handleNav(index, name)}
             >
                {name}
             </div>

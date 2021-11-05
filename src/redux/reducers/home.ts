@@ -4,6 +4,15 @@ const initialState: IState = {
    items: [],
    isFetching: false,
    error: null,
+   filter: {
+      id: 0,
+      name: 'Все'
+   },
+   sortBy: {
+      id: 0,
+      name: 'rating',
+      title: 'популярности'
+   },
 }
 
 const homeReducer = (state = initialState, action: ActionTypes) => {
@@ -18,6 +27,7 @@ const homeReducer = (state = initialState, action: ActionTypes) => {
          return {
             ...state,
             items: action.payload,
+            isFetching: false,
          }
 
       case Actions.SET_ERROR:
@@ -25,6 +35,19 @@ const homeReducer = (state = initialState, action: ActionTypes) => {
             ...state,
             error: action.payload,
          }
+
+      case Actions.SET_FILTER:
+         return {
+            ...state,
+            filter: action.payload,
+         }
+
+      case Actions.SET_SORTBY:
+         return {
+            ...state,
+            sortBy: action.payload,
+         }
+
 
       default:
          return state;

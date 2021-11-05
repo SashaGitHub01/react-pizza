@@ -1,27 +1,35 @@
 import { Dispatch } from "react";
 import { PizzasService } from "../../API/PizzasService";
-import { Actions, ActionTypes, IItem } from "../../types/home";
+import { Actions, ActionTypes, IFilter, IItem, ISort } from "../../types/home";
 
-const fetchItems = () => (
+export const fetchItems = () => (
    { type: Actions.FETCH_ITEMS }
 )
 
-const setItems = (items: IItem[]) => (
+export const setItems = (items: IItem[]) => (
    { type: Actions.SET_ITEMS, payload: items }
 )
 
-const setError = (err: string) => (
+export const setError = (err: string) => (
    { type: Actions.SET_ITEMS, payload: err }
 )
 
-export const getUsers = () => {
+export const setFilter = (obj: IFilter) => (
+   { type: Actions.SET_FILTER, payload: obj }
+)
+
+export const setSortBy = (obj: ISort) => (
+   { type: Actions.SET_SORTBY, payload: obj }
+)
+
+export const getPizzas = (filter: number, sort: string) => {
    return async (dispatch: Dispatch<ActionTypes>) => {
       try {
          dispatch(fetchItems() as ActionTypes)
 
-         const res = await PizzasService.getItems();
+         const res = await PizzasService.getItems(filter, sort);
 
-         dispatch(setItems(res.pizzas) as ActionTypes);
+         dispatch(setItems(res) as ActionTypes);
       } catch (e) {
          dispatch(setError("Something went wrong...") as ActionTypes)
       }
