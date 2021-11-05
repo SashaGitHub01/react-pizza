@@ -28,10 +28,10 @@
       "web-vitals": "^1.0.1"
    },
    "scripts": {
-      "start": "node react-scripts start",
-      "build": "node react-scripts build",
-      "test": "node react-scripts test",
-      "eject": "node react-scripts eject",
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject",
       "server": "node fakeServer.js",
       "json-server": "json-server --watch public/database.json --port=3001"
    },
