@@ -51,7 +51,6 @@
    background-color: $orange1;
    font-size: 1.6rem;
    font-weight: bold;
-   line-height: 1.9rem;
    color: #fff;
    display: flex;
    align-items: center;
@@ -75,6 +74,12 @@
 .nav-money-icon {
 }
 .nav-cart__icon {
-   display: flex;
-   align-items: center;
+   span {
+      vertical-align: middle;
+      padding-left: 5px;
+   }
+
+   .cart-i {
+      vertical-align: middle;
+   }
 }

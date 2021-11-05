@@ -4,8 +4,12 @@ import logo from '../../assets/logo.png';
 import { BiRuble } from 'react-icons/bi';
 import { BsCart2 } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
-const Header = () => {
+const Header: React.FC = () => {
+
+   const { totalPrice, totalCount } = useTypedSelector(state => state.cart);
+
    return (
       <header className="header">
          <div className="header__row">
@@ -31,11 +35,12 @@ const Header = () => {
                   className="nav__cart nav-cart"
                >
                   <div className="nav-cart__money">
-                     500
+                     {totalPrice}
                      <BiRuble className="nav-money-icon" />
                   </div>
                   <div className="nav-cart__icon">
-                     <BsCart2 />
+                     <BsCart2 className="cart-i" />
+                     <span>{totalCount}</span>
                   </div>
                </Link>
             </nav>

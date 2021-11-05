@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import './PizzaItem.scss';
+import { useDispatch } from "react-redux";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import plusW from '../../../assets/plusW.svg';
 import plusO from '../../../assets/plusO.svg';
 import { IItem } from "../../../types/home";
+import { setNewItem } from "../../../redux/actions/cart";
 
 type SizeType = 26 | 30 | 40;
 type ThicknessType = number;
@@ -21,7 +24,10 @@ const optionsB = [
 const PizzaItem: React.FC<IItem> = ({ name, id, imageUrl, price, category, rating, types, sizes }) => {
    const [currentSize, setCurrentSize] = useState<SizeType>(sizes[0] as SizeType);
    const [currentThickness, setCurrentThickness] = useState<ThicknessType>(types[0] as ThicknessType);
-   const [selectedCount, setSelectedCount] = useState(0);
+
+   const dispatch = useDispatch();
+
+   const items = useTypedSelector(state => state.cart.items);
 
    const handleSize = (val: SizeType) => {
       setCurrentSize(val);
@@ -32,7 +38,16 @@ const PizzaItem: React.FC<IItem> = ({ name, id, imageUrl, price, category, ratin
    }
 
    const addCount = () => {
-      setSelectedCount(selectedCount + 1);
+      const obj = {
+         id: id,
+         name: name,
+         type: currentThickness,
+         size: currentSize,
+         imageUrl: imageUrl,
+         price: price,
+      }
+
+      dispatch(setNewItem(obj));
    }
 
    return (
@@ -82,20 +97,20 @@ const PizzaItem: React.FC<IItem> = ({ name, id, imageUrl, price, category, ratin
                </div>
                <button
                   onClick={addCount}
-                  className={selectedCount
+                  className={items[id]
                      ? "pizza-item__btn active"
                      : "pizza-item__btn"
                   }
                >
                   <img
-                     src={selectedCount ? plusO : plusW}
+                     src={items[id] ? plusO : plusW}
                      className="plus-icon"
                   />
                   <span>Добавить</span>
-                  {selectedCount
+                  {items[id]
                      ? <div className="count-circle">
                         <span>
-                           {selectedCount}
+                           {items[id].length}
                         </span>
                      </div>
                      : null}

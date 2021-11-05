@@ -19,13 +19,14 @@
    &__body {
       display: flex;
       align-items: center;
+      flex: 0 1 40%;
    }
    &__img {
-      flex: 0 1 8rem;
+      flex: 0 0 8rem;
       margin-right: 1.5rem;
+      max-width: 8rem;
 
       img {
-         display: block;
          max-width: 100%;
       }
    }
@@ -53,6 +54,7 @@
       line-height: 2.6rem;
       letter-spacing: 0.01em;
       color: rgb(0, 0, 0);
+      padding: 0 0.7rem;
    }
    &__delete {
       width: 32px;
@@ -63,6 +65,9 @@
       border-radius: 50%;
       border: 2px solid rgba(215, 215, 215, 1);
       cursor: pointer;
+      &:hover {
+         background-color: rgba(224, 224, 224, 0.35);
+      }
    }
 }
 .item-count {
@@ -77,6 +82,9 @@
       justify-content: center;
       border-radius: 50%;
       cursor: pointer;
+      &:hover {
+         background-color: rgba(255, 178, 126, 0.2);
+      }
    }
    &__value {
       font-size: 2.2rem;

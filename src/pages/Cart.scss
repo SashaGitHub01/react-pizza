@@ -23,10 +23,6 @@
          vertical-align: middle;
       }
 
-      img {
-         cursor: pointer;
-      }
-
       span {
          padding-left: 1.5rem;
       }
@@ -34,17 +30,18 @@
    &__trash {
       font-size: 1.6rem;
       font-weight: 400;
-      color: rgba(182, 182, 182, 1);
       cursor: pointer;
+
       span,
       img {
          vertical-align: middle;
+         color: rgba(182, 182, 182, 1);
       }
 
       span {
          padding-left: 1.3rem;
       }
-      &:hover {
+      :hover {
          color: rgb(97, 97, 97);
       }
    }
