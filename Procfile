@@ -1,1 +1,1 @@
-web: node fakeServer.js
+web:node server.js
