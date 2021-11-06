@@ -118,3 +118,15 @@
       }
    }
 }
+
+@media (max-width: 630px) {
+   .pizza-item {
+      &__content {
+         justify-self: center;
+      }
+
+      &__img {
+         margin: 0 auto;
+      }
+   }
+}

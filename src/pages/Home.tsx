@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import './Home.scss';
 import HomeContent from "../components/Home/HomeContent/HomeContent";
 import HomeSubnav from "../components/Home/HomeSubnav/HomeSubnav";
 import SortPopup from "../components/Home/SortPopup/SortPopup";
 
-const Home = () => {
+const Home: React.FC = () => {
 
    return (
       <main className="main">

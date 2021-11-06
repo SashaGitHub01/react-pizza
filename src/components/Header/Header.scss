@@ -23,22 +23,20 @@
 .logo-group {
    display: flex;
    align-items: center;
-}
-.logo-group__img {
-}
-.logo-group__body {
-   padding-left: 1.5rem;
-}
-.logo-group__title {
-   font-weight: bold;
-   font-size: 2.4rem;
-   letter-spacing: 0.01em;
-   color: #181818;
-}
-.logo-group__subtitle {
-   font-weight: 400;
-   font-size: 1.6rem;
-   color: #7b7b7b;
+   &__body {
+      padding-left: 1.5rem;
+   }
+   &__title {
+      font-weight: bold;
+      font-size: 2.4rem;
+      letter-spacing: 0.01em;
+      color: #181818;
+   }
+   &__subtitle {
+      font-weight: 400;
+      font-size: 1.6rem;
+      color: #7b7b7b;
+   }
 }
 
 //
@@ -54,21 +52,20 @@
    color: #fff;
    display: flex;
    align-items: center;
-}
-.nav-cart__money {
-   display: flex;
-   position: relative;
-   padding-right: 2.4rem;
-}
-
-.nav-cart__money::after {
-   content: "";
-   background-color: #fff;
-   position: absolute;
-   height: 100%;
-   width: 1px;
-   right: 1.3rem;
-   top: 0;
+   &__money {
+      display: flex;
+      position: relative;
+      padding-right: 2.4rem;
+      &::after {
+         content: "";
+         background-color: #fff;
+         position: absolute;
+         height: 100%;
+         width: 1px;
+         right: 1.3rem;
+         top: 0;
+      }
+   }
 }
 
 .nav-money-icon {
@@ -81,5 +78,28 @@
 
    .cart-i {
       vertical-align: middle;
+   }
+}
+
+@media (max-width: 560px) {
+   .header {
+      padding: 3.2rem 2.5rem 3.2rem 4rem;
+      position: relative;
+   }
+   .logo-group {
+      &__title {
+         font-size: 1.8rem;
+      }
+      &__subtitle {
+         display: none;
+      }
+   }
+}
+
+@media (max-width: 430px) {
+   .header__row {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
    }
 }

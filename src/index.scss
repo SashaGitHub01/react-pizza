@@ -107,3 +107,9 @@ body {
 
 .container {
 }
+
+@media (max-width: 869px) {
+   html {
+      font-size: 50%;
+   }
+}

@@ -12,6 +12,19 @@
    padding: 3rem 0px 3rem 0px;
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
-   gap: 65px 25px;
+   gap: 6.5rem 2.5rem;
    justify-content: space-between;
+}
+
+@media (max-width: 640px) {
+   .pizzas {
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      justify-content: center;
+   }
+
+   .main-content {
+      &__title {
+         text-align: center;
+      }
+   }
 }

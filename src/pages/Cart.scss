@@ -74,8 +74,8 @@
 
    button,
    a {
-      height: 55px;
-      width: 211px;
+      height: 5.5rem;
+      width: 21.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -110,5 +110,18 @@
       text-align: center;
       font-size: 1.6rem;
       font-weight: bold;
+   }
+}
+
+@media (max-width: 500px) {
+   .cart {
+      &__buttons {
+         flex-direction: column;
+         gap: 2rem;
+      }
+      &__pay-btn {
+         margin-top: 3rem;
+         order: -1;
+      }
    }
 }

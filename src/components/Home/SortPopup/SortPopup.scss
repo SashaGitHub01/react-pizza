@@ -3,12 +3,14 @@
 .sort-by {
    position: relative;
    z-index: 1111;
+   margin-left: 1rem;
    &__body {
       color: $black1;
       letter-spacing: 0.015em;
       font-size: 1.4rem;
       font-weight: bold;
       line-height: 1.7rem;
+      text-align: right;
       & .pop-icon {
          vertical-align: middle;
          cursor: pointer;
@@ -54,7 +56,7 @@
       cursor: pointer;
       line-height: 1.7rem;
       letter-spacing: 0.015em;
-      padding: 10px 15px;
+      padding: 1rem 1.5rem;
       &:hover {
          background-color: #fe5f1e0d;
          color: $orange1;
@@ -64,5 +66,20 @@
          color: $orange1;
          font-weight: bold;
       }
+   }
+}
+
+@media (max-width: 540px) {
+   .sort-by {
+      padding-top: 1.2rem;
+      &__body {
+         text-align: center;
+      }
+   }
+
+   .sort-popup {
+      left: 50%;
+      top: 3.5rem;
+      transform: translateX(-50%);
    }
 }

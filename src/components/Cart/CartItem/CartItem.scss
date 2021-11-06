@@ -38,7 +38,7 @@
       line-height: 2.7rem;
       letter-spacing: 0.01em;
       font-weight: bold;
-      margin-bottom: 2px;
+      margin-bottom: 0.2rem;
    }
    &__info {
       font-size: 1.8rem;
@@ -57,8 +57,8 @@
       padding: 0 0.7rem;
    }
    &__delete {
-      width: 32px;
-      height: 32px;
+      width: 3.2rem;
+      height: 3.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -74,8 +74,8 @@
    display: flex;
    align-items: center;
    &__icon {
-      width: 32px;
-      height: 32px;
+      width: 3.2rem;
+      height: 3.2rem;
       border: 2px solid $orange1;
       display: flex;
       align-items: center;
@@ -93,5 +93,12 @@
       letter-spacing: 0.01em;
       color: rgb(0, 0, 0);
       padding: 0 1.2rem;
+   }
+}
+
+@media (max-width: 560px) {
+   .selected-item {
+      flex-direction: column;
+      gap: 2.5rem;
    }
 }
