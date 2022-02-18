@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { useDispatch } from "react-redux";
 import './HomeContent.scss';

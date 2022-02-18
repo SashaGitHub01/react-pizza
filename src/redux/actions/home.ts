@@ -11,7 +11,7 @@ export const setItems = (items: IItem[]) => (
 )
 
 export const setError = (err: string) => (
-   { type: Actions.SET_ITEMS, payload: err }
+   { type: Actions.SET_ERROR, payload: err }
 )
 
 export const setFilter = (obj: IFilter) => (

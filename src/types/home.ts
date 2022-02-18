@@ -61,4 +61,5 @@ interface ISetSortBy {
    payload: ISort,
 }
 
+
 export type ActionTypes = IFetchItems | ISetItems | ISetError | ISetFilter | ISetSortBy;
