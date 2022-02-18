@@ -12,7 +12,7 @@ server.use(router);
 
 if (process.env.NODE_ENV === "production") {
    server.use(jsonServer.defaults('build'));
-   server.use(jsonServer.router('build/db.json'));
+   server.use('/api', jsonServer.router('build/db.json'));
 
    server.get("*", (req, res) =>
       res.sendFile(path.resolve("build", "index.html"))

@@ -2,6 +2,7 @@
    "name": "react-pizza",
    "version": "0.1.0",
    "private": true,
+   "proxy": "https://stormy-temple-06069.herokuapp.com/api",
    "engines": {
       "npm": "7.23.0",
       "node": "14.17.6"
